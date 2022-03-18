@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @mining_type %>
+<br>
+<div>
+  <%= link_to t('links.destroy'), @mining_type, method: :delete, class: "btn btn-primary"  %>
+  <%= link_to t('links.edit'), edit_mining_type_path(@mining_type), class: "btn btn-primary"  %>
+  <%= link_to t('links.back'), mining_types_path, class: "btn btn-primary"  %>
+</div>

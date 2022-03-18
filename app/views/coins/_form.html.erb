@@ -1,0 +1,35 @@
+<%= form_with(model: coin) do |form| %>
+  <% if coin.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+      <ul>
+        <% coin.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <form class="row g-3">
+    <div class="col-md-3">
+      <%= form.label :description, style: "display: block", class: "form-label" %>
+      <%= form.text_field :description, class:"form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= form.label :acronym, style: "display: block" %>
+      <%= form.text_field :acronym, class:"form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= form.label :url_image, style: "display: block" %>
+      <%= form.text_field :url_image, class:"form-control" %>
+    </div>
+    <div class="col-md-3">
+      <%= form.label :mining_type_id %>
+      <%= form.select("mining_type_id", @mining_type_options, {prompt: 'Selecione...'}, class:"form-select") %>
+    </div>
+    <br>
+    <div class="col-md-3">
+      <%= form.submit "#{t('links.confirm')}", class: "btn btn-primary" %>
+      <%= link_to "#{t('links.cancel')}", coins_path, class: "btn btn-primary" %>
+    </div>
+  </form>
+<% end %>

@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @coin %>
+
+<div>
+  <%= link_to t('links.destroy'), @coin, method: :delete, data: {confirm: 'Tem certeza?'}, class: "btn btn-primary" %>
+  <%= link_to t('links.edit'), edit_coin_path(@coin), class: "btn btn-primary" %> 
+  <%= link_to t('links.back'), coins_path, class: "btn btn-primary" %>
+</div>

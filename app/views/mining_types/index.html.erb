@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+<h3><%= MiningType.model_name.human%> <%= link_to t('links.new'), new_mining_type_path, class: "btn btn-primary btn-sm" %> </h3>
+<div id="mining_types">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"><%=MiningType.human_attribute_name(:id)%></th>
+        <th scope="col"><%=MiningType.human_attribute_name(:description)%></th>
+        <th scope="col"><%=MiningType.human_attribute_name(:acronym)%></th>
+        <th scope="col"><%= "#{t('action')}" %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @mining_types.each do |mining_type| %>
+      <tr>
+        <td><%= mining_type.id %></td>
+        <td><%= mining_type.description %></td>
+        <td><%= mining_type.acronym %></td>
+        <td><%= link_to t('links.show'), mining_type %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+
+
